@@ -1,0 +1,40 @@
+.header {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.img_header {
+  height: 72px;
+}
+
+.description {
+  font-size: large;
+  font-weight: 400;
+}
+
+.text_label {
+  font-size: large;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.text_note {
+  font-size: small;
+}
+
+.btn_color {
+  background-color: pink;
+  border-color:black ;
+}
+
+.btn_color:hover {
+  background-color: palevioletred;
+}
+
+.item_text_color {
+  color: green;
+}
+
+.item_text_last {
+  font-size: large;
+}

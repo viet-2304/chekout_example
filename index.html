@@ -19,7 +19,7 @@
     <div class="container">
       <div class="header">
         <img
-          class="d-block mx-auto mb-4 img_header"
+          class="d-block mx-auto mb-4 img-header"
           src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg"
         />
         <h2>Checkout form</h2>
@@ -35,30 +35,30 @@
           <form class="needs-validation">
             <div class="row mb-3">
               <div class="col-md-6">
-                <label for="firstName" class="text_label">First name</label>
+                <label for="firstName" class="text-label">First name</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="firstName"
+                  id="first-Name"
                   placeholder="First name"
                 />
               </div>
               <div class="col-md-6">
-                <label for="lastName" class="text_label">Last name</label>
+                <label for="lastName" class="text-label">Last name</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="lastName"
+                  id="last-Name"
                   placeholder="Last name"
                 />
               </div>
             </div>
             <div class="mb-3">
-              <label for="username" class="text_label">Username</label>
-              <input type="text" class="form-control" id="username" placeholder="Username" />
+              <label for="username" class="text-label">Username</label>
+              <input type="text" class="form-control" id="user-name" placeholder="Username" />
             </div>
             <div class="mb-3">
-              <label for="email" class="text_label"
+              <label for="email" class="text-label"
                 >Email
                 <span class="text-muted">(Optional)</span>
               </label>
@@ -70,7 +70,7 @@
               />
             </div>
             <div class="mb-3">
-              <label for="address" class="text_label">Address</label>
+              <label for="address" class="text-label">Address</label>
               <input
                 type="text"
                 class="form-control"
@@ -79,7 +79,7 @@
               />
             </div>
             <div class="mb-3">
-              <label for="address2" class="text_label">Address 2 </label>
+              <label for="address2" class="text-label">Address 2 </label>
               <input
                 type="text"
                 class="form-control"
@@ -89,33 +89,37 @@
             </div>
             <div class="row">
               <div class="col-md-5 mb-3">
-                <label for="country" class="text_label">Country</label>
+                <label for="country" class="text-label">Country</label>
                 <select class="custom-select" id="country">
-                  <option>Chosse ...</option>
+                  <option hidden>Chosse ...</option>
                   <option>VietNam</option>
+                  <option>USA</option>
+                  <option>Singapore</option>
                 </select>
               </div>
               <div class="col-md-4 mb-3">
-                <label for="state" class="text_label">State</label>
+                <label for="state" class="text-label">State</label>
                 <select class="custom-select" id="state">
-                  <option>Chosse ...</option>
+                  <option hidden>Chosse ...</option>
+                  <option>option 1</option>
                   <option>option 2</option>
+                  <option>option 3</option>
                 </select>
               </div>
               <div class="col-md-3 mb-3">
-                <label for="state" class="text_label"> Zip</label>
+                <label for="state" class="text-label"> Zip</label>
                 <input type="text" class="form-control" id="zip"/>
               </div>
             </div>
             <hr class="mb-4" />
             <div>
-              <input type="checkbox" id="checkbox1" />
+              <input type="checkbox" id="check-box1" />
               <label class="ml-2"
                 >Shipping address is the same as my billing address</label
               >
             </div>
             <div>
-              <input type="checkbox" id="checkbox2" />
+              <input type="checkbox" id="check-box2" />
               <label class="ml-2">Save this information for next time</label>
             </div>
             <hr class="mb-4" />
@@ -137,12 +141,12 @@
             <div class="row mb-4">
               <div class="col-md-6">
                 <label>Name on card</label>
-                <input type="text" class="form-control" id="cardName">
-                <div class="text_note">Full name as displayed on card</div>
+                <input type="text" class="form-control" id="card-Name">
+                <div class="text-note">Full name as displayed on card</div>
               </div>
               <div class="col-md-6">
                 <label>Credit card number</label>
-                <input type="text" class="form-control" id="cardNumber">
+                <input type="text" class="form-control" id="card-Number">
               </div>
             </div>
             <div class="row">
@@ -156,7 +160,7 @@
               </div>
             </div>
             <hr class="mb-4" />
-            <button class="btn btn_color btn-lg btn-block" type="submit">Continue to checkout</button>
+            <button class="btn btn-color btn-lg btn-block" type="submit">Continue to checkout</button>
           </form>
         </div>
         <div class="col-md-4">      
@@ -168,34 +172,34 @@
             <li class="list-group-item d-flex justify-content-between">
               <div>
                 <h5>Product name</h5>
-                <div class="text_note"> Brief description</div>
+                <div class="text-note"> Brief description</div>
               </div>
               <div class="text-mute">$12</div>
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <div>
                 <h5>Second product</h5>
-                <div class="text_note"> Brief description</div>
+                <div class="text-note"> Brief description</div>
               </div>
               <div class="text-mute">$8</div>
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <div>
                 <h5>Third item</h5>
-                <div class="text_note"> Brief description</div>
+                <div class="text-note"> Brief description</div>
               </div>
               <div class="text-mute">$5</div>
             </li>
-            <li class="list-group-item d-flex justify-content-between item_text_color">
+            <li class="list-group-item d-flex justify-content-between item-text-color">
               <div>
                 <h5>Promo code</h5>
-                <div class="text_note">EXAMPLECODE</div>
+                <div class="text-note">EXAMPLECODE</div>
               </div>
               <div class="text-mute">$-5</div>
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <div>
-                <div class="item_text_last">Total (USD)</div>
+                <div class="item-text-last">Total (USD)</div>
               </div>
               <strong class="text-mute">$20</strong>
             </li>
@@ -203,7 +207,7 @@
           <form action="" class="card p-2">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Promo code">
-              <button class="btn btn_color" type="submit">Redeem</button>
+              <button class="btn btn-color" type="submit">Redeem</button>
             </div>
           </form>        
         </div>

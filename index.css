@@ -12,6 +12,11 @@
   font-size: small;
 }
 
+.valid-success {
+  color: green;
+  font-size: small;
+}
+
 .form-error {
   border-color: red !important;
 }

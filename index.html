@@ -30,22 +30,72 @@
         </p>
       </div>
       <div class="row">
-        <div class="col-md-8 mb-4">
+        <div class="col-md-4 order-md-2 mb-4">
+          <h4 class="d-flex justify-content-between align-item-center mb-2">
+            <div class="text-muted">Your card</div>
+            <div class="badge badge-secondary badge-pill">3</div>
+          </h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between">
+              <div>
+                <h5>Product name</h5>
+                <div class="text-note">Brief description</div>
+              </div>
+              <div class="text-mute">$12</div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <div>
+                <h5>Second product</h5>
+                <div class="text-note">Brief description</div>
+              </div>
+              <div class="text-mute">$8</div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <div>
+                <h5>Third item</h5>
+                <div class="text-note">Brief description</div>
+              </div>
+              <div class="text-mute">$5</div>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between item-text-color"
+            >
+              <div>
+                <h5>Promo code</h5>
+                <div class="text-note">EXAMPLECODE</div>
+              </div>
+              <div class="text-mute">-$5</div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <div>
+                <div class="item-text-last">Total (USD)</div>
+              </div>
+              <strong class="text-mute">$20</strong>
+            </li>
+          </ul>
+
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code" />
+            <button class="btn btn-color" type="submit">Redeem</button>
+          </div>
+        </div>
+        <div class="col-md-8 order-md-1">
           <h2>Billing address</h2>
           <form class="needs-validation" novalidate>
-            //using novalidate to custom validate
             <div class="row mb-3">
-              <div class="col-md-6 mb-3">
+              <div class="col-md-6">
                 <label for="firstName" class="text-label">First name</label>
                 <input
                   type="text"
                   class="form-control"
                   id="first-Name"
                   placeholder="First name"
+                  onblur="validateFirstname()"
                   required
                 />
                 <div class="invalid-feedback">Valid first name is required</div>
                 <div id="first-Name-error" class="valid-error"></div>
+                <div id="first-Name-success" class="valid-success"></div>
               </div>
               <div class="col-md-6">
                 <label for="lastName" class="text-label">Last name</label>
@@ -54,10 +104,12 @@
                   class="form-control"
                   id="last-Name"
                   placeholder="Last name"
+                  onblur="validateLastName()"
                   required
                 />
                 <div class="invalid-feedback">Last name is required</div>
                 <div id="last-Name-error" class="valid-error"></div>
+                <div id="last-Name-success" class="valid-success"></div>
               </div>
             </div>
             <div class="mb-3">
@@ -86,9 +138,12 @@
                 class="form-control"
                 id="email"
                 placeholder="Youremail@gmail.com"
+                onblur="validateEmail()"
                 required
               />
               <div class="invalid-feedback">Email is required</div>
+              <div id="email-error" class="valid-error"></div>
+              <div id="email-success" class="valid-success"></div>
             </div>
             <div class="mb-3">
               <label for="address" class="text-label">Address</label>
@@ -190,11 +245,13 @@
                   class="form-control"
                   id="card-Number"
                   required
+                  onblur="validateCardNumber()"
                 />
                 <div class="invalid-feedback">
                   credit card number is required
                 </div>
                 <span class="valid-error" id="card-Number-error"></span>
+                <span class="valid-success" id="card-Number-success"></span>
               </div>
             </div>
             <div class="row">
@@ -204,78 +261,35 @@
                   type="text"
                   class="form-control"
                   id="expiration"
+                  onblur="validateDate()"
                   required
                 />
                 <div class="invalid-feedback">Expiration is required</div>
+                <span class="valid-error" id="expiration-error"></span>
+                <span class="valid-success" id="expiration-success"></span>
               </div>
               <div class="col-md-3">
                 <label for="cvv">CVV</label>
-                <input type="text" class="form-control" id="cvv" required />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cvv"
+                  required
+                  onblur="validateCVV()"
+                />
                 <div class="invalid-feedback">CVV is required</div>
+                <div id="cvv-error" class="valid-error"></div>
+                <div id="cvv-success" class="valid-success"></div>
               </div>
             </div>
             <hr class="mb-4" />
             <button
               class="btn btn-color btn-lg btn-block"
               type="submit"
-              onclick="return validate()"
+              id="buttonSubmit"
             >
               Continue to checkout
             </button>
-          </form>
-        </div>
-        <div class="col-md-4">
-          <h4 class="d-flex justify-content-between align-item-center mb-2">
-            <div class="text-muted">Your card</div>
-            <div class="badge badge-secondary badge-pill">3</div>
-          </h4>
-          <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between">
-              <div>
-                <h5>Product name</h5>
-                <div class="text-note">Brief description</div>
-              </div>
-              <div class="text-mute">$12</div>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <div>
-                <h5>Second product</h5>
-                <div class="text-note">Brief description</div>
-              </div>
-              <div class="text-mute">$8</div>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <div>
-                <h5>Third item</h5>
-                <div class="text-note">Brief description</div>
-              </div>
-              <div class="text-mute">$5</div>
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between item-text-color"
-            >
-              <div>
-                <h5>Promo code</h5>
-                <div class="text-note">EXAMPLECODE</div>
-              </div>
-              <div class="text-mute">-$5</div>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <div>
-                <div class="item-text-last">Total (USD)</div>
-              </div>
-              <strong class="text-mute">$20</strong>
-            </li>
-          </ul>
-          <form action="" class="card p-2">
-            <div class="input-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Promo code"
-              />
-              <button class="btn btn-color" type="submit">Redeem</button>
-            </div>
           </form>
         </div>
       </div>

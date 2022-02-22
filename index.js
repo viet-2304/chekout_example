@@ -25,43 +25,51 @@ function getValue(id) {
   return document.getElementById(id).value;
 }
 
-function showError(id, text) {
-  document.getElementById(id + "-error").innerHTML = text;
-  setStateButton(false);
-}
+//function show when input invalid
+function showError(id, text) { 
+    if (text == null) { //this call when function showSuccess was call
+      document.getElementById(id + "-error").innerHTML = text;
+      setStateButton(false);
+    }
+    else { // this call when input is invalid
+      document.getElementById(id + "-error").innerHTML = text;
+      showSuccess(id, false)
+      setStateButton(false);
+    }
+  }
 
-function showSuccess(id) {
-  document.getElementById(id + "-success").innerHTML = "Look good!";
-  showError(id, null);
-  setStateButton(true);
-}
-
-function checkIsNull(value) {
-  if (value == "") {
-    return true;
-  } else  return false;
-  
+//function show when input valid
+function showSuccess(id, state) {
+  if (state) {
+    document.getElementById(id + "-success").innerHTML = "Look good!";
+    showError(id, null);
+    setStateButton(true);
+  }
+  else {
+    document.getElementById(id + "-success").innerHTML = null;  
+  }
 }
  
 function validateCardNumber() {
   var cardNumber = getValue("card-Number");
   if (isNaN(cardNumber)) {
   showError("card-Number", "Card number must be number");
-  } else if (checkIsNull(cardNumber) == true) {
-    showError("card-Number", "Card number is require");
-  }else {
-  showSuccess("card-Number");
+  } else if (!cardNumber == true) {
+    showSuccess("card-Number", false);
+  } else {
+  showSuccess("card-Number", true);
   }
 }
 
-function validateFirstname() {
+function validateFirstname() { 
   var firstName = getValue("first-Name");
   if (hasNumber.test(firstName)) {
     showError("first-Name", "First name must not have number");
-  } else if (checkIsNull(firstName) == true) {
-    showError("first-Name", "First name is require");
+  } else if (!firstName == true) {  //check if input is null => turn off showerror and showsuccess
+    showError("first-Name", null);
+    showSuccess("first-Name", false);
   } else {
-    showSuccess("first-Name");
+    showSuccess("first-Name", true);
   }
 }
 
@@ -69,20 +77,25 @@ function validateLastName() {
   var lastName = getValue("last-Name");
   if (hasNumber.test(lastName)) {
     showError("last-Name", "Last name must not have number");
-  } else if (checkIsNull(lastName) == true) {
-    showError("last-Name", "Last name is require");
+  } else if (!lastName == true) {
+    showError("last-Name", null);
+    showSuccess("last-Name", false);
   } else {
-    showSuccess("last-Name");
+    showSuccess("last-Name", true);
     console.log(lastName);
   }
 }
 
 function validateEmail() {
   var email = getValue("email");
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) == false) {
+  if (!email == true) {
+    showError("email", null)
+    showSuccess("email", false);  
+  }
+  else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) == false) {
     showError("email", "This is not a true email");
-  } else {
-    showSuccess("email");
+  }  else {
+    showSuccess("email", true);
   }
 }
 
@@ -127,8 +140,12 @@ function checkDate(dateString) {
 function validateDate() {
   var date = getValue("expiration");
   if (checkDate(date)) {
-    showSuccess("expiration");
-  } else {
+    showSuccess("expiration", true);
+  } else if (!date == true) {
+    showError("expiration",null)
+    showSuccess("expiration", false);
+  } 
+  else {
     showError("expiration", "please enter true date");
   }
 }
@@ -136,8 +153,12 @@ function validateDate() {
 function validateCVV() {
   var cvv = getValue("cvv");
   if (/^\d{4}$/.test(cvv)) {
-    showSuccess("cvv");
-  } else {
+    showSuccess("cvv", true);
+  } else if (!cvv == true) {
+    showError("cvv", null);
+    showSuccess("cvv", false);
+  } 
+  else {
     showError("cvv", "CVV must have 4 number");
   }
 }

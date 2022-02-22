@@ -93,7 +93,7 @@
                   onblur="validateFirstname()"
                   required
                 />
-                <div class="invalid-feedback">Valid first name is required</div>
+                <div class="invalid-feedback" id="check">Valid first name is required</div>
                 <div id="first-Name-error" class="valid-error"></div>
                 <div id="first-Name-success" class="valid-success"></div>
               </div>
@@ -107,7 +107,7 @@
                   onblur="validateLastName()"
                   required
                 />
-                <div class="invalid-feedback">Last name is required</div>
+                <div class="invalid-feedback" id="check">Last name is required</div>
                 <div id="last-Name-error" class="valid-error"></div>
                 <div id="last-Name-success" class="valid-success"></div>
               </div>
@@ -125,7 +125,7 @@
                   placeholder="Username"
                   required
                 />
-                <div class="invalid-feedback">Username is required</div>
+                <div class="invalid-feedback" id="check">Username is required</div>
               </div>
             </div>
             <div class="mb-3">
@@ -141,7 +141,7 @@
                 onblur="validateEmail()"
                 required
               />
-              <div class="invalid-feedback">Email is required</div>
+              <div class="invalid-feedback" id="check">Email is required</div>
               <div id="email-error" class="valid-error"></div>
               <div id="email-success" class="valid-success"></div>
             </div>
@@ -154,7 +154,7 @@
                 placeholder="82/109/2 Nguyen Luong Bang"
                 required
               />
-              <div class="invalid-feedback">Address is required</div>
+              <div class="invalid-feedback"  id="check">Address is required</div>
             </div>
             <div class="mb-3">
               <label for="address2" class="text-label">Address 2 </label>
@@ -165,7 +165,7 @@
                 placeholder="82/109/2 Nguyen Luong Bang"
                 required
               />
-              <div class="invalid-feedback">Address is required</div>
+              <div class="invalid-feedback"  id="check">Address is required</div>
             </div>
             <div class="row">
               <div class="col-md-5 mb-3">
@@ -176,7 +176,7 @@
                   <option>USA</option>
                   <option>Singapore</option>
                 </select>
-                <div class="invalid-feedback">Please select the country</div>
+                <div class="invalid-feedback"  id="check">Please select the country</div>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="state" class="text-label">State</label>
@@ -191,7 +191,7 @@
               <div class="col-md-3 mb-3">
                 <label for="state" class="text-label"> Zip</label>
                 <input type="text" class="form-control" id="zip" required />
-                <div class="invalid-feedback">Zip is required</div>
+                <div class="invalid-feedback"  id="check">Zip is required</div>
               </div>
             </div>
             <hr class="mb-4" />
@@ -236,7 +236,7 @@
                   required
                 />
                 <div class="text-note">Full name as displayed on card</div>
-                <div class="invalid-feedback">Name on card is required</div>
+                <div class="invalid-feedback"  id="check">Name on card is required</div>
               </div>
               <div class="col-md-6">
                 <label>Credit card number</label>
@@ -247,7 +247,7 @@
                   required
                   onblur="validateCardNumber()"
                 />
-                <div class="invalid-feedback">
+                <div class="invalid-feedback"  id="check">
                   credit card number is required
                 </div>
                 <span class="valid-error" id="card-Number-error"></span>
@@ -264,7 +264,7 @@
                   onblur="validateDate()"
                   required
                 />
-                <div class="invalid-feedback">Expiration is required</div>
+                <div class="invalid-feedback"  id="check">Expiration is required</div>
                 <span class="valid-error" id="expiration-error"></span>
                 <span class="valid-success" id="expiration-success"></span>
               </div>
@@ -277,7 +277,7 @@
                   required
                   onblur="validateCVV()"
                 />
-                <div class="invalid-feedback">CVV is required</div>
+                <div class="invalid-feedback"  id="check">CVV is required</div>
                 <div id="cvv-error" class="valid-error"></div>
                 <div id="cvv-success" class="valid-success"></div>
               </div>

@@ -1,6 +1,24 @@
+.container {
+  max-width: 960px;
+}
+
 .header {
   text-align: center;
   margin-top: 30px;
+}
+
+.valid-error {
+  color: red;
+  font-size: small;
+}
+
+.valid-success {
+  color: green;
+  font-size: small;
+}
+
+.form-error {
+  border-color: red !important;
 }
 
 .img-header {

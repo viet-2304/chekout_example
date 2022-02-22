@@ -25,16 +25,21 @@ function getValue(id) {
   return document.getElementById(id).value;
 }
 
+function getState() {
+  if (document.getElementById("check").style.display == 'block') {
+    return true
+  } else return false
+
+}
+
 //function show when input invalid
 function showError(id, text) { 
     if (text == null) { //this call when function showSuccess was call
       document.getElementById(id + "-error").innerHTML = text;
-      setStateButton(false);
     }
     else { // this call when input is invalid
       document.getElementById(id + "-error").innerHTML = text;
       showSuccess(id, false)
-      setStateButton(false);
     }
   }
 
@@ -43,7 +48,6 @@ function showSuccess(id, state) {
   if (state) {
     document.getElementById(id + "-success").innerHTML = "Look good!";
     showError(id, null);
-    setStateButton(true);
   }
   else {
     document.getElementById(id + "-success").innerHTML = null;  
@@ -63,9 +67,12 @@ function validateCardNumber() {
 
 function validateFirstname() { 
   var firstName = getValue("first-Name");
+  if(getState()==true) {
+    showError("first-Name", null);
+  }
   if (hasNumber.test(firstName)) {
     showError("first-Name", "First name must not have number");
-  } else if (!firstName == true) {  //check if input is null => turn off showerror and showsuccess
+  } else if (!firstName == true ) {  //check if input is null => turn off showerror and showsuccess
     showError("first-Name", null);
     showSuccess("first-Name", false);
   } else {
@@ -75,6 +82,9 @@ function validateFirstname() {
 
 function validateLastName() {
   var lastName = getValue("last-Name");
+  if(getState()==true) {
+    showError("last-Name", null);
+  }
   if (hasNumber.test(lastName)) {
     showError("last-Name", "Last name must not have number");
   } else if (!lastName == true) {
@@ -88,6 +98,9 @@ function validateLastName() {
 
 function validateEmail() {
   var email = getValue("email");
+  if(getState()==true) {
+    showError("email", null);
+  }
   if (!email == true) {
     showError("email", null)
     showSuccess("email", false);  
@@ -139,6 +152,9 @@ function checkDate(dateString) {
 
 function validateDate() {
   var date = getValue("expiration");
+  if(getState()==true) {
+    showError("expiration", null);
+  }
   if (checkDate(date)) {
     showSuccess("expiration", true);
   } else if (!date == true) {
@@ -152,6 +168,9 @@ function validateDate() {
 
 function validateCVV() {
   var cvv = getValue("cvv");
+  if(getState()==true) {
+    showError("cvv", null);
+  }
   if (/^\d{4}$/.test(cvv)) {
     showSuccess("cvv", true);
   } else if (!cvv == true) {
@@ -160,13 +179,5 @@ function validateCVV() {
   } 
   else {
     showError("cvv", "CVV must have 4 number");
-  }
-}
-
-function setStateButton(state) {
-  if (state) {
-    document.getElementById("buttonSubmit").disabled = true;
-  } else {
-    document.getElementById("buttonSubmit").disabled = false;
   }
 }
